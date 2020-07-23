@@ -1,10 +1,10 @@
 trigger:
   - master
   
-  pool:
+pool:
     vmImage: 'ubuntu-latest'
   
-  steps:
+steps:
   - script: echo K8S Terraform Azure!
     displayName: 'Run a one-line script'
   - task: DownloadSecureFile@1
@@ -20,27 +20,24 @@ trigger:
       backendType: 'azurerm'
       backendServiceArm: 'azure-resource-manager-service-connection'
       ensureBackend: true
-      backendAzureRmResourceGroupName: 'terraform-backend-rg'
       backendAzureRmResourceGroupLocation: 'westeurope'
       backendAzureRmStorageAccountName: 'storageAccountLayMui'
       backendAzureRmContainerName: 'storageAccountLayMuiContainer'
       backendAzureRmKey: 'kubernetes-dev-tfstate'
-  
+    
   - task: TerraformCLI@0
     inputs:
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
       environmentServiceName: 'azure-resource-manager-service-connection'
       commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
-  
+    
   - task: TerraformCLI@0
     inputs:
       command: 'destroy'
       workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
       environmentServiceName: 'azure-resource-manager-service-connection'
-
-
-
-
-
-      
+  
+  
+        
+ 
