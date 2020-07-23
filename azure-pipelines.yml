@@ -24,8 +24,8 @@ steps:
       ensureBackend: true
       backendAzureRmResourceGroupName: 'terraform-backend-rg'
       backendAzureRmResourceGroupLocation: 'westeurope'
-      backendAzureRmStorageAccountName: 'storageAccountLayMui'
-      backendAzureRmContainerName: 'storageAccountLayMuiContainer'
+      backendAzureRmStorageAccountName: 'storage-account-laymui'
+      backendAzureRmContainerName: 'storage-account-laymui-container'
       backendAzureRmKey: 'kubernetes-dev-tfstate'
     
   - task: TerraformCLI@0
