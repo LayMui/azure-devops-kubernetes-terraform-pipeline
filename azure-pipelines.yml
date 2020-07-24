@@ -18,7 +18,7 @@ steps:
     inputs:
       command: 'init'
       workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/backend'
-      # commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFile)'
+      # commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
       backendType: 'azurerm'
       backendServiceArm: 'azure-resource-manager-service-connection'
       ensureBackend: true
@@ -33,7 +33,7 @@ steps:
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/backend'
       environmentServiceName: 'azure-resource-manager-service-connection'
-      commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var subscription_id=$(subscription_id) -var tenant_id=$(tenant_id) -var ssh_public_key=$(publickey.secureFile)'
+      commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var subscription_id=$(subscription_id) -var tenant_id=$(tenant_id) -var ssh_public_key=$(publickey.secureFilePath)'
   
   # - task: TerraformCLI@0
   #   inputs:
