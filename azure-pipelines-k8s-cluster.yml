@@ -21,7 +21,7 @@ stages:
         containerRegistry: 'in28min-docker-hub'
         repository: 'in28min/currency-exchange-devops'
         command: 'buildAndPush'
-        Dockerfile: './Dockerfile'
+        Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
 #     - task: CopyFiles@2
 #       inputs:
