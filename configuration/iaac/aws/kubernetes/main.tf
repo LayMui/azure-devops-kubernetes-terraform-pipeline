@@ -26,7 +26,7 @@ provider "kubernetes" {
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
-#  version                = "~> 2.20.0"
+  version                = "~> 2.20.0"
   features {}
 }
 
@@ -81,5 +81,5 @@ resource "kubernetes_cluster_role_binding" "example" {
 # Needed to set the default region
 provider "aws" {
   region  = "ap-southeast-1"
-  features {}
+  #features {}
 }
