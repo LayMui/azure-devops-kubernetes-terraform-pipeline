@@ -154,3 +154,6 @@ terraform output kube_config>~/.kube/config
 kubectl proxy
 open 'http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/overview?namespace=default'
 ```
+
+After running the CI pipeline to deploy the microservice docker image to k8s cluster
+hit the endpoint: http://13.67.66.222:8000/currency-exchange/from/USD/to/INR
