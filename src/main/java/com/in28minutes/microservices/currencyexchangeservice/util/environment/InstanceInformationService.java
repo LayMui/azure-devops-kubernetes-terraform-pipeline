@@ -13,9 +13,9 @@ public class InstanceInformationService {
 	// @Value(${ENVIRONMENT_VARIABLE_NAME:DEFAULT_VALUE})
 	@Value("${" + HOST_NAME + ":" + DEFAULT_ENV_INSTANCE_GUID + "}")
 	private String hostName;
-
+s
 	public String retrieveInstanceInfo() {
-		return hostName + " v3 " + hostName.substring(hostName.length()-5);
+		return hostName + " v4 " + hostName.substring(hostName.length()-5);
 	}
 
 }
